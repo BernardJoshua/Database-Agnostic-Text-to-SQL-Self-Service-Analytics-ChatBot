@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text-to-SQL Self-Service Analytics Chatbot</title>
+  <meta name="description" content="A database-agnostic Text-to-SQL self-service analytics chatbot for non-technical users." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">Text-to-SQL Chatbot</a>
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#problem">Problem</a>
+        <a href="#users">Users</a>
+        <a href="#scope">Scope</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#updates">Repo Updates</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Database-Agnostic NLP Application</p>
+          <h1>Text-to-SQL Self-Service Analytics Chatbot</h1>
+          <p class="lead">
+            A schema-aware, RAG-enhanced Text-to-SQL system that converts natural-language business questions into executable SQL so non-technical teams can retrieve insights faster.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/BernardJoshua/Database-Agnostic-Text-to-SQL-Self-Service-Analytics-ChatBot" target="_blank" rel="noreferrer">View Repository</a>
+            <a class="btn btn-secondary" href="#updates">See Latest Updates</a>
+          </div>
+        </div>
+        <div class="hero-card card">
+          <h3>Project Snapshot</h3>
+          <ul class="stat-list">
+            <li><span>App</span><strong>Streamlit-based web application</strong></li>
+            <li><span>Core model</span><strong>Schema-aware encoder-decoder SLM</strong></li>
+            <li><span>Retrieval</span><strong>RAG-based schema retrieval</strong></li>
+            <li><span>Input</span><strong>Natural language query + schema context</strong></li>
+            <li><span>Output</span><strong>Executable SQL query + table results</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Product Overview</p>
+          <h2>Summary</h2>
+        </div>
+        <div class="card">
+          <p>
+            The proposed application uses semantic parsing in NLP to convert natural language into SQL while adapting to different database structures. It is designed as a self-service analytics assistant so non-technical users can ask business questions directly and receive structured, query-backed outputs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Problem Statement</p>
+          <h2>What this project fixes</h2>
+        </div>
+        <div class="grid three">
+          <article class="card problem-card">
+            <h3>Inefficient Resource Usage</h3>
+            <p>Data analysts and engineers are repeatedly interrupted by simple ad hoc requests instead of focusing on higher-value work.</p>
+          </article>
+          <article class="card problem-card">
+            <h3>Decision Delays</h3>
+            <p>Slow turnaround for request handling and SQL generation delays timely business decision-making.</p>
+          </article>
+          <article class="card problem-card">
+            <h3>Technical Dependency</h3>
+            <p>Non-technical stakeholders rely too heavily on technical teams for basic data access and business insight retrieval.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="objectives" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Objectives</p>
+          <h2>Core product goals</h2>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <ul class="feature-list">
+              <li>Convert natural-language queries into SQL statements.</li>
+              <li>Enable self-service data access for non-technical stakeholders.</li>
+              <li>Reduce dependency on data analysts and engineers for routine ad hoc queries.</li>
+              <li>Support database-agnostic behavior across varying schemas.</li>
+              <li>Rigorously evaluate SQL accuracy, executability, and system usefulness.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Success Metrics</h3>
+            <ul class="feature-list">
+              <li>Execution Accuracy</li>
+              <li>Retrieval Relevance</li>
+              <li>SQL Correctness</li>
+              <li>Error Analysis</li>
+              <li>Response Time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="users" class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Stakeholders & Target Users</p>
+          <h2>Who this is for</h2>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3>Primary users</h3>
+            <div class="chip-row">
+              <span class="chip">Marketing</span>
+              <span class="chip">Growth</span>
+              <span class="chip">Strategy</span>
+              <span class="chip">Finance / Treasury</span>
+              <span class="chip">HR</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Pain points</h3>
+            <ul class="feature-list">
+              <li>Need to wait for data teams to answer routine requests.</li>
+              <li>Slow speed of information retrieval for decision-making.</li>
+              <li>SQL learning curve blocks direct self-service access.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">User Stories</p>
+          <h2>Example business asks</h2>
+        </div>
+        <div class="grid two">
+          <article class="card story-card">
+            <p>As a <strong>marketing analyst</strong>, I want to know what the conversion rate for the New-Year's campaign looks like in percentage.</p>
+          </article>
+          <article class="card story-card">
+            <p>As a <strong>strategy analyst</strong>, I want to get the month-on-month growth rate of Product A.</p>
+          </article>
+          <article class="card story-card">
+            <p>As a <strong>financial or treasury analyst</strong>, I want to estimate the acquisition cost of Company B based on similar companies acquired in the past year.</p>
+          </article>
+          <article class="card story-card">
+            <p>As an <strong>HR analyst</strong>, I want to track employee churn over the past 5 months.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="scope" class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Scope Definition</p>
+          <h2>What the product does and does not do</h2>
+        </div>
+        <div class="grid two">
+          <div class="card scope in-scope">
+            <h3>In Scope</h3>
+            <ul class="feature-list">
+              <li>SQL-based analytics workflows</li>
+              <li>SELECT queries</li>
+              <li>Aggregations</li>
+              <li>Joins</li>
+            </ul>
+          </div>
+          <div class="card scope out-scope">
+            <h3>Out of Scope</h3>
+            <ul class="feature-list">
+              <li>Non-SQL analytics such as Python or Spark workflows</li>
+              <li>Full data pipeline design or engineering</li>
+              <li>Building base tables</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture</p>
+          <h2>Model and system design</h2>
+        </div>
+
+        <div class="arch-block card">
+          <h3>Model Architecture</h3>
+          <div class="flow-stack">
+            <div class="flow-pair">
+              <div class="flow-box">Natural Language Query</div>
+              <div class="flow-plus">+</div>
+              <div class="flow-box">Retrieved Schema Context</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box wide">Input Construction / Prompt Builder</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">Tokenizer</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">Schema-Aware Encoder</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">Decoder</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">SQL Token Generation</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">Post-processing / SQL Formatting</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box emphasis">Final SQL Query</div>
+          </div>
+        </div>
+
+        <div class="arch-block card">
+          <h3>System Architecture</h3>
+          <div class="system-grid">
+            <div class="sys-box">User</div>
+            <div class="sys-arrow">↓</div>
+            <div class="sys-box">Streamlit Frontend</div>
+            <div class="sys-arrow">↓</div>
+            <div class="sys-box">Python Orchestrator<br><span>Session handling · Input construction · Routing logic</span></div>
+            <div class="sys-row split">
+              <div class="sys-box">RAG Schema Retriever<br><span>Retrieve tables · columns · relevant context</span></div>
+              <div class="sys-box">Schema Metadata Store / Vector Store</div>
+            </div>
+            <div class="sys-arrow">↓</div>
+            <div class="sys-box">Schema-Aware Text-to-SQL SLM<br><span>FLAN-T5 / CodeT5 · NL → SQL generation</span></div>
+            <div class="sys-arrow">↓</div>
+            <div class="sys-box">SQL Validation / Execution<br><span>Syntax checks · Safe execution · Python DB connector</span></div>
+            <div class="sys-arrow">↓</div>
+            <div class="sys-box">Target Database</div>
+            <div class="sys-arrow">↓</div>
+            <div class="sys-box">Output Formatter<br><span>Table results · SQL shown to user · Error messages</span></div>
+            <div class="sys-arrow">↓</div>
+            <div class="sys-box emphasis">Streamlit Output UI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="updates" class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Live Repository Feed</p>
+          <h2>Latest updates from GitHub</h2>
+          <p class="section-copy">This section reads directly from the public GitHub API so the page reflects the most recent repository activity without manual edits.</p>
+        </div>
+
+        <div class="grid three">
+          <div class="card stat-card">
+            <p class="stat-label">Default branch</p>
+            <p id="repo-branch" class="stat-value">Loading…</p>
+          </div>
+          <div class="card stat-card">
+            <p class="stat-label">Last push</p>
+            <p id="repo-pushed" class="stat-value">Loading…</p>
+          </div>
+          <div class="card stat-card">
+            <p class="stat-label">Open issues</p>
+            <p id="repo-issues" class="stat-value">Loading…</p>
+          </div>
+        </div>
+
+        <div class="grid two updates-grid">
+          <div class="card">
+            <h3>Repository Overview</h3>
+            <ul class="repo-meta">
+              <li><span>Repository</span><strong id="repo-name">Loading…</strong></li>
+              <li><span>Description</span><strong id="repo-description">Loading…</strong></li>
+              <li><span>Stars</span><strong id="repo-stars">Loading…</strong></li>
+              <li><span>Forks</span><strong id="repo-forks">Loading…</strong></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Latest Commit</h3>
+            <div id="latest-commit" class="commit-card loading">Loading latest commit…</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-subheading">
+            <h3>Recent Commit History</h3>
+            <a class="text-link" href="https://github.com/BernardJoshua/Database-Agnostic-Text-to-SQL-Self-Service-Analytics-ChatBot/commits/main" target="_blank" rel="noreferrer">Open full history</a>
+          </div>
+          <div id="commit-list" class="commit-list loading">Loading commit history…</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>Built as a GitHub Pages-ready project site for the Text-to-SQL Self-Service Analytics Chatbot.</p>
+      <a href="https://github.com/BernardJoshua/Database-Agnostic-Text-to-SQL-Self-Service-Analytics-ChatBot" target="_blank" rel="noreferrer">Repository</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
